@@ -35,6 +35,9 @@ int main(int argc, char *argv[]) {
     } while (cont !=0 );
 
     relatorio();
-
     return 0;
 }
+
+// Ao realizar o teste de tentar imprimir o valor da variavel comissao
+// o compilador informa que não existe aquele identificador, pois ela
+// só existe dentro da função registrarVenda(float valor)
