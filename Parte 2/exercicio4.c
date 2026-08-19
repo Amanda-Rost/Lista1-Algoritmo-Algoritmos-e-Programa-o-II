@@ -4,6 +4,8 @@
 int totalVendas = 0; 
 float valorAcumulado = 0.0;
 
+// Ela registra uma venda realiza, recebe o valor da venda
+// não retorna nada
 void registrarVenda(float valor) {
     float comissao = valor *0.05;
     totalVendas ++;
@@ -12,6 +14,7 @@ void registrarVenda(float valor) {
 
 }
 
+// Ela gera o relatorio de vendas, não recebe e nem retorna nada 
 void relatorio(void) {
     printf("\n\nRelatorio\nTotal de vendas = %d \nValor acumulado = %0.02f reais \nTicket medio = %0.02f", totalVendas, valorAcumulado, valorAcumulado/totalVendas);
 }
