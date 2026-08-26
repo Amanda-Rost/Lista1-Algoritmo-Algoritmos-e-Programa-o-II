@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-// Porque ao contrario do exercicio 6 que as funcoes usam uma copia da variavel
+// Resposta pergunta: Porque ao contrario do exercicio 6 que as funcoes usam uma copia da variavel
 // Quando falamos de vetores o proprio que é usado nas funcoes para os calculos, 
 // como o vetor é o mesmo em todo o codigo, o que aconteceu com ele nas funcoes 
 // acontece na main tambem

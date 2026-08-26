@@ -26,6 +26,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-// O valor de precoBase não muda, pois a função trabalhou apenas com uma cópia. 
+// Resposta pergunta: O valor de precoBase não muda, pois a função trabalhou apenas com uma cópia. 
 // E é essa copia que é usada no calculo, o resultado é enviado de volta na variável precoFinal, 
 // permitindo que a main use o resultado sem alterar a variável base
