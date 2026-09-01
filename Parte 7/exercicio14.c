@@ -1,40 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX 10000
+
 int ehPrimo(int n);
 int primosAte(int limite, int v[]);
+int proximoPrimo(int n);
 void mostrarVetor(int v[], int tam);
 
 
 int main(int argc, char *argv[]) {
-    int nums[] = {7, 3, 9, 1, 5, 8, 2};
-    int i, val;
+    int limite = 0;
+    int primos[MAX]; 
 
-    printf("Vetor original:\n");
-    for(i=0; i < 7; i++){
-        printf("%d\n",  nums[i]);
+    printf("Digite ate que numero voce quer ver os primos (maximo %d):\n", MAX);
+    scanf("%d", &limite);
+
+    if (limite > MAX) {
+        printf("O limite nao pode ser maior que %d.\n", MAX);
+        return 1;
     }
 
-    dobrarValores(nums,7);
-    printf("\nVetor dobrado:\n");
-    for(i=0; i < 7; i++){
-        printf("%d\n",  nums[i]);
-    }
+    int qtdPrimos = primosAte(limite, primos);
 
-    ordenar(nums,7);
-    printf("\nVetor ordenado:\n");
-    for(i=0; i < 7; i++){
-        printf("%d\n",  nums[i]);
-    }
-
-    printf("\nDigite o valor que deseja encontrar: \n");
-    scanf("%d",&val);
-
-    printf("A posicao desse valor eh: %d", buscar(nums,7,val));
+    printf("\nNumeros primos ate %d (%d encontrados):\n", limite, qtdPrimos);
+    mostrarVetor(primos, qtdPrimos);
+    printf("\n");
 
     return 0;
 }
 
+// Indentifica se o numero eh primo, rebece o numero a ser verificado
+// retorna 0 se nao for e 1 se for
 int ehPrimo(int n){
     if (n <= 1) {
         return 0; 
@@ -52,21 +49,37 @@ int ehPrimo(int n){
     return 1;
 }
 
+// Identifica os numeros primos até o limite dado, e vai incerindo no vetor
+// recebido, retorna a quantidade de numeros primos encontrados
 int primosAte(int limite, int v[]) {
     int i, resul = 0, quant = 0;
     for (i = 1; i <= limite; i++ ) {
         resul = ehPrimo(i);
 
         if (resul){
+            v[quant] = i;
             quant++;
         }
     }
     return quant;
 }
 
+// Recebe um numero e retorna o proximo primo depois dele
 int proximoPrimo(int n) {
+    int primo = 0;
 
+    while (primo == 0) {
+        primo = ehPrimo(n);
+
+        if(primo == 0) {
+            n++;
+        }
+    }
+
+    return n;
 }
+
+// Recebe um vetor e seu tamanho, e imprime o vetor, nao retorna nada
 void mostrarVetor(int v[], int tam) {
     int i, cont=0;
     for (i = 0; i < tam; i++) {
@@ -78,4 +91,6 @@ void mostrarVetor(int v[], int tam) {
         }
     }
 }
- 
+
+// Resposta pergunta: Dá erro porque a main deixaria de conhecer os metodos 
+// porque eles só "nasce" depois da main
