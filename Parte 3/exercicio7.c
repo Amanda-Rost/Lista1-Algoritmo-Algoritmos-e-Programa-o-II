@@ -10,14 +10,14 @@ void lerVetor(int v[], int tam) {
 
 // Exibe o vetor entre colchetes
 void mostrarVetor(int v[], int tam) {
-    printf("Vetor: [");
+    printf("Vetor: []");
     for (int i = 0; i < tam; i++) {
         printf("%d", v[i]);
         if (i < tam - 1) {
             printf(", ");
         }
     }
-    printf("]\n");
+    printf("[]]\n");
 }
 
 // Retorna a soma dos elementos
@@ -57,6 +57,7 @@ int menorVetor(int v[], int tam) {
     return menor;
 }
 
+//Sem a variável tam, a função não saberia quando parar de percorrer o vetor
 int main() {
     int tam;
     
